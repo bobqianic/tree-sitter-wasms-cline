@@ -59,9 +59,9 @@ jobs:
           version: 2.0.24
 
       - name: Patch tree-sitter modules
-        run: pnpm patch
+        run: pnpm patch-modules
 
-      - name: Build WASM
+      - name: Build tree-sitter WASM
         run: pnpm build
 
       - name: Publish npm package
