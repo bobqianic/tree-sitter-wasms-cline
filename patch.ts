@@ -9,6 +9,7 @@ import packageInfo from "./package.json";
 
 // Assert that devDependencies is a Record of string keys and string values.
 const devDeps = packageInfo.devDependencies as Record<string, string>;
+const patch_addTreeSitterSrc = packageInfo.patch.addTreeSitterSrc as Record<string, string>;
 
 let hasErrors = false;
 
@@ -83,21 +84,77 @@ async function addTreeSitterJSON(packageName: string) {
     }
 }
 
-(async () => {
-    // Resolve the absolute path of the 'swift-parser' relative to the current file.
-    const folderPath = path.resolve(__dirname, 'swift-parser');
+function isPlainObject(obj: unknown): obj is Record<string, unknown> {
+    return (
+        typeof obj === 'object' &&
+        obj !== null &&
+        obj.constructor === Object
+    );
+}
 
-    if (fs.existsSync(folderPath)) {
-        console.log(`Folder exists at: ${folderPath}`);
-    } else {
-        console.error('Folder not found!');
+/**
+ * Recursively copies all files and subdirectories from src to dest.
+ * If a file already exists in dest, it will be overridden.
+ */
+async function copyDirectory(src: string, dest: string): Promise<void> {
+    // Create the destination directory (and its parents) if it doesn't exist.
+    await fs.promises.mkdir(dest, { recursive: true });
+    // Read the contents of the source directory.
+    const entries = await fs.promises.readdir(src, { withFileTypes: true });
+    for (const entry of entries) {
+        const srcPath = path.join(src, entry.name);
+        const destPath = path.join(dest, entry.name);
+        if (entry.isDirectory()) {
+            // Recursively copy subdirectories.
+            await copyDirectory(srcPath, destPath);
+        } else {
+            // Copy files (overwriting if necessary).
+            await fs.promises.copyFile(srcPath, destPath);
+        }
     }
+}
 
+async function addTreeSitterSrc() {
+    // Here, the key is the local source folder, and the value is the destination folder in node_modules.
+    for (const srcKey in patch_addTreeSitterSrc) {
+        const destValue = patch_addTreeSitterSrc[srcKey];
+
+        // Resolve the source folder relative to the current directory.
+        const srcFolder = path.resolve(__dirname, srcKey);
+
+        // Process the destination specification.
+        // The first part is the package name, and the rest is the subdirectory path.
+        const [destPackage, ...destSubDirs] = destValue.split("/");
+        let packageRoot: string;
+        try {
+            packageRoot = findRoot(require.resolve(destPackage));
+        } catch (_) {
+            packageRoot = path.join(__dirname, "node_modules", destPackage);
+        }
+        const destFolder = path.join(packageRoot, ...destSubDirs);
+
+        console.log(`Copying from source ${srcFolder} to destination ${destFolder}`);
+        try {
+            await copyDirectory(srcFolder, destFolder);
+            console.log(`✅ Successfully copied from ${srcKey} to ${destValue}`);
+        } catch (error) {
+            console.error(`🔥 Failed to copy from ${srcKey} to ${destValue}:`, error);
+            hasErrors = true;
+        }
+    }
+}
+
+(async () => {
     // First: Run the patch to add tree-sitter.json for specified packages.
     if (packageInfo.patch && Array.isArray(packageInfo.patch.addTreeSitterJSON)) {
         for (const pkg of packageInfo.patch.addTreeSitterJSON) {
             await addTreeSitterJSON(pkg);
         }
+    }
+
+    // Second: Copy tree-sitter parser source to the specified location.
+    if (packageInfo.patch && isPlainObject(packageInfo.patch.addTreeSitterSrc)) {
+        await addTreeSitterSrc();
     }
 
     if (hasErrors) {

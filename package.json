@@ -36,7 +36,10 @@
     "tree-sitter-typescript": "0.23.2"
   },
   "patch": {
-    "addTreeSitterJSON": ["tree-sitter-kotlin", "tree-sitter-lua", "tree-sitter-swift"]
+    "addTreeSitterJSON": ["tree-sitter-kotlin", "tree-sitter-lua", "tree-sitter-swift"],
+    "addTreeSitterSrc": {
+      "swift-parser": "tree-sitter-swift/src"
+    }
   },
   "files": [
     "/out"
