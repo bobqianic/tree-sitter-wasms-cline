@@ -6,7 +6,8 @@
   "author": "Bob <>, Gregor <gregorwbr@gmail.com>, Menci <huanghaorui301@gmail.com>",
   "license": "Unlicense",
   "scripts": {
-    "build": "ts-node build.ts"
+    "build": "ts-node build.ts",
+    "patch": "ts-node patch.ts"
   },
   "devDependencies": {
     "@supercharge/promise-pool": "^3.2.0",
