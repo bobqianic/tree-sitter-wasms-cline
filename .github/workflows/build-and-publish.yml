@@ -4,32 +4,47 @@ jobs:
   build-swift:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Build tree-sitter-swift `grammar.json` and `parser.c`
-        run: pnpm build-swift
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
+      - name: Checkout tree-sitter-swift
+        uses: actions/checkout@v3
         with:
-          name: tree-sitter-swift-artifact
-          path: swift-artifact.zip
+          repository: alex-pinkus/tree-sitter-swift
+          ref: f4be8072f18fb9704fd35d4b8154ae2b19e314c0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build parser source
+        run: npm run test-ci
+        
+      - name: Upload parser source
+        uses: actions/upload-artifact@v4
+        with:
+          name: swift-parser-src
+          path: src
       
   build-wasm-and-publish:
     needs: build-swift
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout tree-sitter-wasms-cline
+        uses: actions/checkout@v3
 
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
-          name: tree-sitter-swift-artifact
+          name: swift-parser-src
+          path: swift-parser
 
       - name: Install pnpm package manager
         uses: pnpm/action-setup@v2
           
-      - name: Install Node.js with pnpm
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
