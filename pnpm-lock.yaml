@@ -48,20 +48,17 @@ importers:
         specifier: 0.23.1
         version: 0.23.1(tree-sitter@0.21.1)
       tree-sitter-kotlin:
-        specifier: 0.3.8
-        version: 0.3.8(tree-sitter@0.21.1)
+        specifier: github:fwcd/tree-sitter-kotlin#c4ddea359a7ff4d92360b2efcd6cfce5dc25afe6
+        version: https://codeload.github.com/fwcd/tree-sitter-kotlin/tar.gz/c4ddea359a7ff4d92360b2efcd6cfce5dc25afe6(tree-sitter@0.21.1)
       tree-sitter-lua:
-        specifier: npm:@tree-sitter-grammars/tree-sitter-lua@0.2.0
-        version: '@tree-sitter-grammars/tree-sitter-lua@0.2.0(tree-sitter@0.21.1)'
+        specifier: github:tree-sitter-grammars/tree-sitter-lua#1197e88fb53fe7a3a5d7b95ba02b225cacb763cb
+        version: '@tree-sitter-grammars/tree-sitter-lua@https://codeload.github.com/tree-sitter-grammars/tree-sitter-lua/tar.gz/1197e88fb53fe7a3a5d7b95ba02b225cacb763cb(tree-sitter@0.21.1)'
       tree-sitter-php:
         specifier: 0.23.11
         version: 0.23.11(tree-sitter@0.21.1)
       tree-sitter-python:
         specifier: 0.23.4
         version: 0.23.4(tree-sitter@0.21.1)
-      tree-sitter-r:
-        specifier: github:r-lib/tree-sitter-r#5a82944f94e33a3923ba11a17988a697dca05a22
-        version: https://codeload.github.com/r-lib/tree-sitter-r/tar.gz/5a82944f94e33a3923ba11a17988a697dca05a22(tree-sitter@0.21.1)
       tree-sitter-ruby:
         specifier: 0.23.1
         version: 0.23.1(tree-sitter@0.21.1)
@@ -69,8 +66,8 @@ importers:
         specifier: 0.23.1
         version: 0.23.1(tree-sitter@0.21.1)
       tree-sitter-swift:
-        specifier: 0.6.0
-        version: 0.6.0(tree-sitter@0.21.1)
+        specifier: github:alex-pinkus/tree-sitter-swift#f4be8072f18fb9704fd35d4b8154ae2b19e314c0
+        version: https://codeload.github.com/alex-pinkus/tree-sitter-swift/tar.gz/f4be8072f18fb9704fd35d4b8154ae2b19e314c0(tree-sitter@0.21.1)
       tree-sitter-typescript:
         specifier: 0.23.2
         version: 0.23.2(tree-sitter@0.21.1)
@@ -101,13 +98,13 @@ packages:
     resolution: {integrity: sha512-pj0cAALblTZBPtMltWOlZTQSLT07jIaFNeM8TWoJD1cQMgDB9mcMlVMoetiB35OzNJpqQ2b+QEtwiR9f20mADg==}
     engines: {node: '>=8'}
 
-  '@tree-sitter-grammars/tree-sitter-lua@0.2.0':
-    resolution: {integrity: sha512-VPk971J3hBUNr7CpZJvgTU5UmEkW8iMQ0Sk6br4O3xL00XFEO4PCjSSGeYYakRgPAJiIR8J594UcBK+7ilBvqw==}
+  '@tree-sitter-grammars/tree-sitter-lua@https://codeload.github.com/tree-sitter-grammars/tree-sitter-lua/tar.gz/1197e88fb53fe7a3a5d7b95ba02b225cacb763cb':
+    resolution: {tarball: https://codeload.github.com/tree-sitter-grammars/tree-sitter-lua/tar.gz/1197e88fb53fe7a3a5d7b95ba02b225cacb763cb}
+    version: 0.3.0
     peerDependencies:
       tree-sitter: ^0.21.1
-      tree_sitter: '*'
     peerDependenciesMeta:
-      tree_sitter:
+      tree-sitter:
         optional: true
 
   '@tsconfig/node10@1.0.11':
@@ -233,8 +230,9 @@ packages:
       tree-sitter:
         optional: true
 
-  tree-sitter-kotlin@0.3.8:
-    resolution: {integrity: sha512-A4obq6bjzmYrA+F0JLLoheFPcofFkctNaZSpnDd+GPn1SfVZLY4/GG4C0cYVBTOShuPBGGAOPLM1JWLZQV4m1g==}
+  tree-sitter-kotlin@https://codeload.github.com/fwcd/tree-sitter-kotlin/tar.gz/c4ddea359a7ff4d92360b2efcd6cfce5dc25afe6:
+    resolution: {tarball: https://codeload.github.com/fwcd/tree-sitter-kotlin/tar.gz/c4ddea359a7ff4d92360b2efcd6cfce5dc25afe6}
+    version: 0.3.9
     peerDependencies:
       tree-sitter: ^0.21.0
       tree_sitter: '*'
@@ -258,16 +256,6 @@ packages:
       tree-sitter:
         optional: true
 
-  tree-sitter-r@https://codeload.github.com/r-lib/tree-sitter-r/tar.gz/5a82944f94e33a3923ba11a17988a697dca05a22:
-    resolution: {tarball: https://codeload.github.com/r-lib/tree-sitter-r/tar.gz/5a82944f94e33a3923ba11a17988a697dca05a22}
-    version: 1.1.0
-    peerDependencies:
-      tree-sitter: ^0.21.0
-      tree_sitter: '*'
-    peerDependenciesMeta:
-      tree_sitter:
-        optional: true
-
   tree-sitter-ruby@0.23.1:
     resolution: {integrity: sha512-d9/RXgWjR6HanN7wTYhS5bpBQLz1VkH048Vm3CodPGyJVnamXMGb8oEhDypVCBq4QnHui9sTXuJBBP3WtCw5RA==}
     peerDependencies:
@@ -284,8 +272,9 @@ packages:
       tree-sitter:
         optional: true
 
-  tree-sitter-swift@0.6.0:
-    resolution: {integrity: sha512-9vOJZes4/UFjBr4COHtp6ZHVuZYwfChSQbpneXQog04dAstfx5px3ybVX2cN+ylvLqsvVpmXLpidxxgF2rDQ7A==}
+  tree-sitter-swift@https://codeload.github.com/alex-pinkus/tree-sitter-swift/tar.gz/f4be8072f18fb9704fd35d4b8154ae2b19e314c0:
+    resolution: {tarball: https://codeload.github.com/alex-pinkus/tree-sitter-swift/tar.gz/f4be8072f18fb9704fd35d4b8154ae2b19e314c0}
+    version: 0.6.0
     peerDependencies:
       tree-sitter: ^0.21.1
       tree_sitter: '*'
@@ -355,10 +344,11 @@ snapshots:
 
   '@supercharge/promise-pool@3.2.0': {}
 
-  '@tree-sitter-grammars/tree-sitter-lua@0.2.0(tree-sitter@0.21.1)':
+  '@tree-sitter-grammars/tree-sitter-lua@https://codeload.github.com/tree-sitter-grammars/tree-sitter-lua/tar.gz/1197e88fb53fe7a3a5d7b95ba02b225cacb763cb(tree-sitter@0.21.1)':
     dependencies:
       node-addon-api: 8.3.0
       node-gyp-build: 4.8.4
+    optionalDependencies:
       tree-sitter: 0.21.1
 
   '@tsconfig/node10@1.0.11': {}
@@ -453,7 +443,7 @@ snapshots:
     optionalDependencies:
       tree-sitter: 0.21.1
 
-  tree-sitter-kotlin@0.3.8(tree-sitter@0.21.1):
+  tree-sitter-kotlin@https://codeload.github.com/fwcd/tree-sitter-kotlin/tar.gz/c4ddea359a7ff4d92360b2efcd6cfce5dc25afe6(tree-sitter@0.21.1):
     dependencies:
       node-addon-api: 7.1.1
       node-gyp-build: 4.8.4
@@ -473,12 +463,6 @@ snapshots:
     optionalDependencies:
       tree-sitter: 0.21.1
 
-  tree-sitter-r@https://codeload.github.com/r-lib/tree-sitter-r/tar.gz/5a82944f94e33a3923ba11a17988a697dca05a22(tree-sitter@0.21.1):
-    dependencies:
-      node-addon-api: 8.3.0
-      node-gyp-build: 4.8.4
-      tree-sitter: 0.21.1
-
   tree-sitter-ruby@0.23.1(tree-sitter@0.21.1):
     dependencies:
       node-addon-api: 8.3.0
@@ -493,7 +477,7 @@ snapshots:
     optionalDependencies:
       tree-sitter: 0.21.1
 
-  tree-sitter-swift@0.6.0(tree-sitter@0.21.1):
+  tree-sitter-swift@https://codeload.github.com/alex-pinkus/tree-sitter-swift/tar.gz/f4be8072f18fb9704fd35d4b8154ae2b19e314c0(tree-sitter@0.21.1):
     dependencies:
       node-addon-api: 8.3.0
       node-gyp-build: 4.8.4

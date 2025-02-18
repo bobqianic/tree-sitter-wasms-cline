@@ -25,15 +25,17 @@
     "tree-sitter-java": "0.23.5",
     "tree-sitter-julia": "0.23.1",
     "tree-sitter-javascript": "0.23.1",
-    "tree-sitter-kotlin": "0.3.8",
-    "tree-sitter-lua": "npm:@tree-sitter-grammars/tree-sitter-lua@0.2.0",
+    "tree-sitter-kotlin": "github:fwcd/tree-sitter-kotlin#c4ddea359a7ff4d92360b2efcd6cfce5dc25afe6",
+    "tree-sitter-lua": "github:tree-sitter-grammars/tree-sitter-lua#1197e88fb53fe7a3a5d7b95ba02b225cacb763cb",
     "tree-sitter-php": "0.23.11",
     "tree-sitter-python": "0.23.4",
     "tree-sitter-ruby": "0.23.1",
     "tree-sitter-rust": "0.23.1",
-    "tree-sitter-r": "github:r-lib/tree-sitter-r#5a82944f94e33a3923ba11a17988a697dca05a22",
-    "tree-sitter-swift": "0.6.0",
+    "tree-sitter-swift": "github:alex-pinkus/tree-sitter-swift#f4be8072f18fb9704fd35d4b8154ae2b19e314c0",
     "tree-sitter-typescript": "0.23.2"
+  },
+  "patch": {
+    "addTreeSitterJSON": ["tree-sitter-kotlin", "tree-sitter-lua", "tree-sitter-swift"]
   },
   "files": [
     "/out"
