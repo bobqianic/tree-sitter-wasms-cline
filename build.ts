@@ -51,7 +51,6 @@ process.chdir(outDir);
 
 const grammars = Object.keys(packageInfo.devDependencies)
   .filter((n) => n.startsWith("tree-sitter-") && n !== "tree-sitter-cli")
-  .concat("@tlaplus/tree-sitter-tlaplus")
   .filter((s) => !langArg || s.includes(langArg));
 
 PromisePool.withConcurrency(os.cpus().length)
