@@ -51,8 +51,8 @@ importers:
         specifier: 0.3.8
         version: 0.3.8(tree-sitter@0.21.1)
       tree-sitter-lua:
-        specifier: github:tree-sitter-grammars/tree-sitter-lua#1197e88fb53fe7a3a5d7b95ba02b225cacb763cb
-        version: '@tree-sitter-grammars/tree-sitter-lua@https://codeload.github.com/tree-sitter-grammars/tree-sitter-lua/tar.gz/1197e88fb53fe7a3a5d7b95ba02b225cacb763cb(tree-sitter@0.21.1)'
+        specifier: npm:@tree-sitter-grammars/tree-sitter-lua@0.2.0
+        version: '@tree-sitter-grammars/tree-sitter-lua@0.2.0(tree-sitter@0.21.1)'
       tree-sitter-php:
         specifier: 0.23.11
         version: 0.23.11(tree-sitter@0.21.1)
@@ -101,13 +101,13 @@ packages:
     resolution: {integrity: sha512-pj0cAALblTZBPtMltWOlZTQSLT07jIaFNeM8TWoJD1cQMgDB9mcMlVMoetiB35OzNJpqQ2b+QEtwiR9f20mADg==}
     engines: {node: '>=8'}
 
-  '@tree-sitter-grammars/tree-sitter-lua@https://codeload.github.com/tree-sitter-grammars/tree-sitter-lua/tar.gz/1197e88fb53fe7a3a5d7b95ba02b225cacb763cb':
-    resolution: {tarball: https://codeload.github.com/tree-sitter-grammars/tree-sitter-lua/tar.gz/1197e88fb53fe7a3a5d7b95ba02b225cacb763cb}
-    version: 0.3.0
+  '@tree-sitter-grammars/tree-sitter-lua@0.2.0':
+    resolution: {integrity: sha512-VPk971J3hBUNr7CpZJvgTU5UmEkW8iMQ0Sk6br4O3xL00XFEO4PCjSSGeYYakRgPAJiIR8J594UcBK+7ilBvqw==}
     peerDependencies:
       tree-sitter: ^0.21.1
+      tree_sitter: '*'
     peerDependenciesMeta:
-      tree-sitter:
+      tree_sitter:
         optional: true
 
   '@tsconfig/node10@1.0.11':
@@ -355,11 +355,10 @@ snapshots:
 
   '@supercharge/promise-pool@3.2.0': {}
 
-  '@tree-sitter-grammars/tree-sitter-lua@https://codeload.github.com/tree-sitter-grammars/tree-sitter-lua/tar.gz/1197e88fb53fe7a3a5d7b95ba02b225cacb763cb(tree-sitter@0.21.1)':
+  '@tree-sitter-grammars/tree-sitter-lua@0.2.0(tree-sitter@0.21.1)':
     dependencies:
       node-addon-api: 8.3.0
       node-gyp-build: 4.8.4
-    optionalDependencies:
       tree-sitter: 0.21.1
 
   '@tsconfig/node10@1.0.11': {}

@@ -22,7 +22,6 @@ async function buildParserWASM(
 ) {
   const label = subPath ? path.join(name, subPath) : name;
   try {
-    console.log(`⏳ Building ${label}`);
     let packagePath;
     try {
       packagePath = findRoot(require.resolve(name));
