@@ -1,5 +1,5 @@
 # tree-sitter-wasms
-Prebuilt WASM binaries for tree-sitter's language parsers. Forked from https://github.com/Menci/tree-sitter-wasm-prebuilt because I wanted to use GitHub Actions to automate publishing.
+Prebuilt WASM Binaries of Tree-sitter's Language Parsers for Cline. Forked from [https://github.com/Menci/tree-sitter-wasm-prebuilt](https://github.com/Gregoor/tree-sitter-wasms)
 
 ## Installation
 
@@ -14,10 +14,28 @@ npm install tree-sitter-wasms
 ## Usage
 
 ```ts
-import treeSitterRust from "tree-sitter-wasms/out/tree-sitter-rust.wasm"
+import treeSitterRust from "tree-sitter-wasms-cline/out/tree-sitter-rust.wasm"
 parser.setLanguage(treeSitterCpp);
 ```
 
 ## Supported Languages
 
-Check https://unpkg.com/browse/tree-sitter-wasms@latest/out/ to see all supported languages, and manually download the wasm artifacts directly.
+| Language   |
+|------------|
+| c          |
+| c-sharp    |
+| cpp        |
+| go         |
+| java       |
+| julia      |
+| javascript |
+| kotlin     |
+| lua        |
+| php        |
+| python     |
+| ruby       |
+| rust       |
+| r          |
+| swift      |
+| typescript |
+
