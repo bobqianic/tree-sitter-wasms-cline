@@ -53,7 +53,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - uses: mymindstorm/setup-emsdk@v11
+      - name: Install emsdk
+        uses: mymindstorm/setup-emsdk@v11
         with:
           version: 2.0.24
 
