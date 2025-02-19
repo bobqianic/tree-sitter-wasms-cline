@@ -4,7 +4,7 @@ on:
     types: [published]
 jobs:
   build-swift:
-    uses: ./.github/workflows/languages/build-swift.yml
+    uses: ./.github/workflows/build-swift.yml
     with:
       node_version: '20.x'
 
