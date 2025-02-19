@@ -4,31 +4,9 @@ on:
     types: [published]
 jobs:
   build-swift:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout tree-sitter-swift
-        uses: actions/checkout@v3
-        with:
-          repository: alex-pinkus/tree-sitter-swift
-          ref: f4be8072f18fb9704fd35d4b8154ae2b19e314c0
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build parser source
-        run: npm run test-ci
-
-      - name: Upload parser source
-        uses: actions/upload-artifact@v4
-        with:
-          name: swift-parser-src
-          path: src
+    uses: ./.github/workflows/languages/build-swift.yml
+    with:
+      node_version: '20.x'
 
   build-wasm-and-publish:
     needs: build-swift
