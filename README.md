@@ -1,5 +1,5 @@
-# tree-sitter-wasms
-Prebuilt WASM Binaries of Tree-sitter's Language Parsers for Cline. Forked from [https://github.com/Menci/tree-sitter-wasm-prebuilt](https://github.com/Gregoor/tree-sitter-wasms)
+# tree-sitter-wasms-cline
+Prebuilt WASM Binaries of Tree-sitter's Language Parsers for Cline. Forked from [https://github.com/Gregoor/tree-sitter-wasms](https://github.com/Gregoor/tree-sitter-wasms)
 
 ## Installation
 
@@ -35,7 +35,6 @@ parser.setLanguage(treeSitterCpp);
 | python     |
 | ruby       |
 | rust       |
-| r          |
 | swift      |
 | typescript |
 
