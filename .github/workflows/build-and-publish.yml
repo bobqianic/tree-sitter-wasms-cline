@@ -1,5 +1,7 @@
 name: build-and-publish
-on: workflow_dispatch
+on:
+  release:
+    types: [published]
 jobs:
   build-swift:
     runs-on: ubuntu-latest
@@ -21,13 +23,13 @@ jobs:
 
       - name: Build parser source
         run: npm run test-ci
-        
+
       - name: Upload parser source
         uses: actions/upload-artifact@v4
         with:
           name: swift-parser-src
           path: src
-      
+
   build-wasm-and-publish:
     needs: build-swift
     runs-on: ubuntu-latest
@@ -43,7 +45,7 @@ jobs:
 
       - name: Install pnpm package manager
         uses: pnpm/action-setup@v2
-          
+
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
@@ -68,4 +70,3 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-
