@@ -1,4 +1,4 @@
-name: Build and Publish
+name: Publish
 on:
   release:
     types: [published]
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout tree-sitter-wasms-cline
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Download artifact
         uses: actions/download-artifact@v4
@@ -22,7 +22,7 @@ jobs:
           path: swift-parser
 
       - name: Install pnpm package manager
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -34,9 +34,9 @@ jobs:
         run: pnpm install
 
       - name: Install emsdk
-        uses: mymindstorm/setup-emsdk@v11
+        uses: mymindstorm/setup-emsdk@v14
         with:
-          version: 2.0.24
+          version: 4.0.3
 
       - name: Patch tree-sitter modules
         run: pnpm patch-modules
@@ -45,6 +45,6 @@ jobs:
         run: pnpm build
 
       - name: Publish npm package
-        uses: JS-DevTools/npm-publish@v1
+        uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
