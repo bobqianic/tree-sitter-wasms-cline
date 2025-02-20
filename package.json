@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-wasms-cline",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Prebuilt WASM Binaries of Tree-sitter's Language Parsers for Cline",
   "repository": "https://github.com/Gregoor/tree-sitter-wasms",
   "author": "Bob <>, Gregor <gregorwbr@gmail.com>, Menci <huanghaorui301@gmail.com>",
