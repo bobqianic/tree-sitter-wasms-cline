@@ -1,8 +1,8 @@
 {
-  "name": "tree-sitter-wasms-cline",
+  "name": "tree-sitter-wasms-roo",
   "version": "0.1.13",
-  "description": "Prebuilt WASM Binaries of Tree-sitter's Language Parsers for Cline",
-  "repository": "https://github.com/Gregoor/tree-sitter-wasms",
+  "description": "Prebuilt WASM Binaries of Tree-sitter's Language Parsers for Roo Code",
+  "repository": "https://github.com/bobqianic/tree-sitter-wasms-roo",
   "author": "Bob <>, Gregor <gregorwbr@gmail.com>, Menci <huanghaorui301@gmail.com>",
   "license": "Unlicense",
   "scripts": {
